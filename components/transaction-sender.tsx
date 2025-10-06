@@ -169,7 +169,7 @@ async function sendRealTransaction(
       
       // Stage 6: Confirmed
       onStageUpdate("confirmed", {
-        status: receipt.status === 1 ? 0 : 1, // 0 = success in Conflux, 1 = failure
+        status: receipt.status === 1 ? 1 : 0, // 1 = success, 0 = failure
         gasUsed: receipt.gasUsed,
         logs: receipt.logs,
       })
@@ -182,7 +182,7 @@ async function sendRealTransaction(
       })
       
       onStageUpdate("confirmed", {
-        status: 0, // Assume success since transaction was sent
+        status: 1, // Assume success since transaction was sent
         gasUsed: "21000",
         logs: [],
       })
